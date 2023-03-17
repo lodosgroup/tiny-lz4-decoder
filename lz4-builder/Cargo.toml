@@ -1,0 +1,18 @@
+[package]
+name = "lz4-builder"
+version = "1.9.4"
+edition = "2021"
+build = "./build.rs"
+authors = ["Onur Ozkan <contact@onurozkan.dev>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/foss-lodpm/tiny-lz4-decompressor"
+homepage = "https://github.com/foss-lodpm/tiny-lz4-decompressor"
+description = "zero dependency, tiny lz4 decompression wrapper built for lodpm"
+categories = ["decompression", "lz4"]
+keywords = ["decompression", "lz4"]
+
+[lib]
+doctest = false
+
+[dependencies]

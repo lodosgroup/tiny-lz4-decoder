@@ -1,0 +1,4 @@
+[workspace]
+members = [
+	"lz4-builder"
+]
