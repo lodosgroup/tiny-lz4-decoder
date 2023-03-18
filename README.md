@@ -1,1 +1,1 @@
-# tiny-lz4-decompressor
+# tiny-lz4-decoder

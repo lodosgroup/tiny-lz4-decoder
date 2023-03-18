@@ -13,14 +13,14 @@ fn main() {
     let home_path =
         env::var("HOME").unwrap_or_else(|_| panic!("HOME environment variable is not set."));
     let output_dir = Path::new(".");
-    let compiled_output_name = "tiny_lz4_decompressor";
+    let compiled_output_name = "tiny_lz4_decoder_sys";
 
-    let target_dir = Path::new(&home_path).join(".local/share/tiny_lz4_decompressor");
+    let target_dir = Path::new(&home_path).join(".local/share/tiny_lz4_decoder_sys");
     let target_dylib_path = target_dir.join("lib".to_owned() + compiled_output_name + ".so");
 
     if target_dylib_path.exists() {
         println!(
-            "cargo:warning=libtiny_lz4_decompressor already exists on system. Process will safely exit."
+            "cargo:warning=libtiny_lz4_decoder_sys already exists on system. Process will safely exit."
         );
         process::exit(0);
     }
@@ -31,14 +31,10 @@ fn main() {
         .arg("-D_POSIX_THREAD_SAFE_FUNCTIONS")
         .arg("-c")
         .arg("-I")
-        .arg("c_source")
         .arg("c_source/lz4.c")
-        .arg("-o")
-        .arg(
-            output_dir
-                .clone()
-                .join(compiled_output_name.to_owned() + ".o"),
-        )
+        .arg("c_source/lz4hc.c")
+        .arg("c_source/lz4frame.c")
+        .arg("c_source/xxhash.c")
         .output()
         .unwrap_or_else(|_| panic!("Couldn't compile c_source into object file."));
 
@@ -47,22 +43,16 @@ fn main() {
         .clone()
         .join("lib".to_owned() + compiled_output_name + ".so");
 
-    #[allow(clippy::clone_double_ref)]
-    let ofile_path = output_dir
-        .clone()
-        .join(compiled_output_name.to_owned() + ".o");
     Command::new("cc")
         .arg("-shared")
-        .arg(&ofile_path)
+        .arg("lz4.o")
+        .arg("lz4hc.o")
+        .arg("lz4frame.o")
+        .arg("xxhash.o")
         .arg("-o")
         .arg(&dylib_path)
         .output()
-        .unwrap_or_else(|_| {
-            panic!(
-                "Couldn't create shared object from {}",
-                ofile_path.display()
-            )
-        });
+        .unwrap_or_else(|_| panic!("Couldn't create shared object."));
 
     // set library permission as read-only
     let mut lib_permissions = fs::metadata(&dylib_path)

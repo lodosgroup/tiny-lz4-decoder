@@ -1,4 +1,5 @@
 [workspace]
 members = [
-	"lz4-builder"
+	"lz4-builder",
+	"tiny-lz4-decoder-sys"
 ]
