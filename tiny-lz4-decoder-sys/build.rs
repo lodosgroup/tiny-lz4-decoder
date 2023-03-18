@@ -12,4 +12,3 @@ fn main() {
     let target_dir = Path::new(&home_path).join(".local/share/tiny_lz4_decoder_sys");
     println!("cargo:rustc-link-search={}", target_dir.display());
 }
-

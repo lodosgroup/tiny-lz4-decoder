@@ -9,10 +9,8 @@ readme = "README.md"
 repository = "https://github.com/foss-lodpm/tiny-lz4-decoder"
 homepage = "https://github.com/foss-lodpm/tiny-lz4-decoder"
 description = "zero dependency, tiny lz4 decompression wrapper built for lodpm"
-categories = ["decompression", "lz4"]
-keywords = ["decompression", "lz4"]
+categories = ["decompression", "decoder", "ffi", "wrapper", "lz4"]
+keywords = ["decompression", "decoder", "ffi", "wrapper", "lz4"]
 
 [lib]
 doctest = false
-
-[dependencies]

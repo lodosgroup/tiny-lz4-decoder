@@ -2,7 +2,17 @@
 name = "tiny-lz4-decoder-sys"
 version = "1.0.0"
 edition = "2021"
+authors = ["Onur Ozkan <contact@onurozkan.dev>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/foss-lodpm/tiny-lz4-decoder"
+homepage = "https://github.com/foss-lodpm/tiny-lz4-decoder"
+description = "zero dependency, tiny lz4 decompression wrapper built for lodpm"
+categories = ["decompression", "decoder", "ffi", "wrapper", "lz4"]
+keywords = ["decompression", "decoder", "ffi", "wrapper", "lz4"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+doctest = false
 
 [dependencies]
+lz4-builder = { version = "1.0.0", path = "../lz4-builder" }
