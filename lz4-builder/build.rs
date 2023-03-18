@@ -31,6 +31,7 @@ fn main() {
         .arg("-D_POSIX_THREAD_SAFE_FUNCTIONS")
         .arg("-c")
         .arg("-I")
+        .arg("c_source")
         .arg("c_source/lz4.c")
         .arg("c_source/lz4hc.c")
         .arg("c_source/lz4frame.c")

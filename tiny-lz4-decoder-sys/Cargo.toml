@@ -1,6 +1,6 @@
 [package]
 name = "tiny-lz4-decoder-sys"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["Onur Ozkan <contact@onurozkan.dev>"]
 license = "MIT"
@@ -15,4 +15,4 @@ keywords = ["decompression", "decoder", "ffi", "wrapper", "lz4"]
 doctest = false
 
 [dependencies]
-lz4-builder = { version = "1.0.0", path = "../lz4-builder" }
+lz4-builder = { version = "1.0.1", path = "../lz4-builder" }

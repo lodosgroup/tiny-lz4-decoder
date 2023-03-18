@@ -4,11 +4,11 @@ version = 3
 
 [[package]]
 name = "lz4-builder"
-version = "1.0.0"
+version = "1.0.1"
 
 [[package]]
 name = "tiny-lz4-decoder-sys"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "lz4-builder",
 ]

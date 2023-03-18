@@ -1,6 +1,6 @@
 [package]
 name = "lz4-builder"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 build = "./build.rs"
 authors = ["Onur Ozkan <contact@onurozkan.dev>"]
